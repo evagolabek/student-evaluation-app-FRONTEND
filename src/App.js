@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import './App.css';
-import SignupPage from './components/signup/SignupPage'
-import LoginPage from './components/login/LoginPage'
-import LogoutPage from './components/logout/LogoutPage'
-import BatchList from './components/batches/BatchList'
+import SignupPage from './components/SignupPage'
+import LoginPage from './components/LoginPage'
+import LogoutPage from './components/LogoutPage'
+import BatchList from './components/BatchList'
 
 class App extends Component {
   render() {
