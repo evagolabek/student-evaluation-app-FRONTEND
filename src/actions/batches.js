@@ -24,7 +24,7 @@ export const getBatches = () => (dispatch, getState) => {
 export const createBatch = () => (dispatch, getState) => {
   const state = getState()
   // const jwt = state.currentUser.jwt
-console.log(state)
+  console.log(state)
   request
     .post(`${baseUrl}/batches`)
     // .set('Authorization', `Bearer ${jwt}`)

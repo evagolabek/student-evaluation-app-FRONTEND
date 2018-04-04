@@ -1,7 +1,7 @@
 
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import {signup} from '../../actions/users'
+import {signup} from '../actions/users'
 import SignupForm from './SignupForm'
 import {Redirect} from 'react-router-dom'
 

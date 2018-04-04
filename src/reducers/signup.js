@@ -1,6 +1,6 @@
 import {
 	USER_SIGNUP_SUCCESS, USER_SIGNUP_FAILED
-} from '../actions/users'
+} from '../actions/types'
 
 export default function (state = {}, {type, payload}) {
 	switch(type) {
