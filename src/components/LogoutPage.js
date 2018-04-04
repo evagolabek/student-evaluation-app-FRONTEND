@@ -22,7 +22,7 @@ class LogoutPage extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-	authenticated: state.currentUser !== null
+	currentUser: state.currentUser !== null
 })
 
 export default connect(mapStateToProps, {logout})(LogoutPage)

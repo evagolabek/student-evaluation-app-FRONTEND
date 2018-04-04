@@ -6,7 +6,7 @@ import {USER_SIGNUP_SUCCESS, USER_SIGNUP_FAILED, USER_LOGIN_SUCCESS, USER_LOGIN_
 export const signup = (email, password) => (dispatch) =>
 	request
 		.post(`${baseUrl}/users`)
-		.send({ firstName: email, lastName: email, email, password })
+		.send({ email, password })
 		.then(result => {
 			dispatch({
 				type: USER_SIGNUP_SUCCESS
@@ -27,7 +27,7 @@ export const signup = (email, password) => (dispatch) =>
 export const login = (email, password) => (dispatch) =>
 	request
 		.post(`${baseUrl}/logins`)
-    .send({email, password})
+    .send({ email, password })
     .then(result => {
       dispatch({
         type: USER_LOGIN_SUCCESS,

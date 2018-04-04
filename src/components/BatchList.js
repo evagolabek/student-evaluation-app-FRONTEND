@@ -1,40 +1,37 @@
 import React, { PureComponent } from 'react'
-import './BatchList.css'
 import {connect} from 'react-redux'
 import {getBatches} from '../actions/batches'
+// import {Redirect} from 'react-router-dom'
+import './BatchList.css'
 
 class BatchList extends PureComponent {
-componentWillMount() {
-  this.props.getBatches()
-}
+  componentWillMount() {
+    this.props.getBatches()
+  }
+
   render() {
     const {batches} = this.props;
     if (!batches) return null
 
-
     return (
       <div className = 'batch-list'>
-      {console.log(this.props)}
         <h2>Batches</h2>
         <table>
-          <tr>
-            <th>ID</th>
-            <th className="title">Title</th>
-            <th>Score</th>
-            <th>Edit</th>
+          <tr className='batch-header'>
+            <th>Batch #</th>
+            <th>Start Date</th>
+            <th>End Date</th>
           </tr>
 
           {batches.map(batch =>
-            <tr>
-              <td width="5%">{batch.id}</td>
-              <td width="70%" className="title">{batch.title}</td>
-              <td width="10%"></td>
-              <td width="15%" onClick={_=>window.location.href=`/edit/${batch.id}`} className='edit-button'>edit this batch</td>
-
+            <tr className='batch-row' onClick={_=>window.location.href=`/batches/${batch.id}`}>
+              <td className='batch-number'>{batch.number}</td>
+              <td className='batch-startDate'>{batch.startDate}</td>
+              <td className='batch-endDate'>{batch.endDate}</td>
             </tr>
           )}
         </table>
-        <button onClick={_=>window.location.href=`/BatchAdd`} className='add-button'>Add New Batch</button>
+        <button onClick={_=>window.location.href=`/BatchAdd`} className='batch-addButton'>Add New Batch</button>
       </div>
     )
   }
@@ -42,8 +39,7 @@ componentWillMount() {
 
 const mapStateToProps = function (state) {
 	return {
-		batches: state.batches,
-    //error: state.login.error
+		batches: state.batches
 	}
 }
 
