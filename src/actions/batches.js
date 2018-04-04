@@ -21,8 +21,6 @@ export const getBatches = () => (dispatch, getState) => {
     .catch(err => console.error(err))
 }
 
-
-
 export const createBatch = () => (dispatch, getState) => {
   const state = getState()
   // const jwt = state.currentUser.jwt

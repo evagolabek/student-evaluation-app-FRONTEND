@@ -4,6 +4,7 @@ import './App.css';
 import SignupPage from './components/signup/SignupPage'
 import LoginPage from './components/login/LoginPage'
 import LogoutPage from './components/logout/LogoutPage'
+import BatchList from './components/batches/BatchList'
 
 class App extends Component {
   render() {
@@ -13,7 +14,9 @@ class App extends Component {
       <h1 className="title">Student Evaluation App</h1>
       <Route exact path="/signup" component={SignupPage} />
       <Route exact path="/login" component={LoginPage} />
+      <Route exact path="/batchlist" component={BatchList} />
       <Route exact path="/logout" component={LogoutPage} />
+
       </div>
       </Router>
     );
