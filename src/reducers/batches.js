@@ -13,7 +13,6 @@ export default (state = null, {type, payload}) => {
 
     case UPDATE_BATCH:
       return payload.reduce((batches, batch) => {
-        console.log(batch);
         batches[batch.id] = batch
         return batches
       }, {})

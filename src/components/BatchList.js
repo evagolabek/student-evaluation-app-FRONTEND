@@ -11,7 +11,6 @@ class BatchList extends PureComponent {
 
   render() {
     const {batches} = this.props;
-    if (!batches) return null
 
     return (
       <div className = 'batch-list'>
@@ -23,7 +22,7 @@ class BatchList extends PureComponent {
             <th>End Date</th>
           </tr>
 
-          {batches.map(batch =>
+          {batches && batches.map(batch =>
             <tr className='batch-row' onClick={_=>window.location.href=`/batches/${batch.id}`}>
               <td className='batch-number'>{batch.number}</td>
               <td className='batch-startDate'>{batch.startDate}</td>
@@ -31,7 +30,7 @@ class BatchList extends PureComponent {
             </tr>
           )}
         </table>
-        <button onClick={_=>window.location.href=`/BatchAdd`} className='batch-addButton'>Add New Batch</button>
+        <button onClick={_=>window.location.href=`/addBatch`} className='batch-addButton'>Add New Batch</button>
       </div>
     )
   }
