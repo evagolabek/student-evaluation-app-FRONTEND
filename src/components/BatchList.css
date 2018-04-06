@@ -1,0 +1,29 @@
+.batch-list {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid grey; */
+  font-size: 15px;
+}
+
+.batch-row {
+  cursor: pointer;
+}
+
+.batch-header {
+  background-color: lightgrey;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 20px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    text-align: center;
+}
+
+h2 {
+  text-align: center;
+}
