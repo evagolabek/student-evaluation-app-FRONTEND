@@ -1,6 +1,4 @@
 import React, {PureComponent} from 'react'
-import './BatchCreator.css'
-
 
 class BatchForm extends PureComponent {
 	state = {}

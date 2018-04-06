@@ -1,6 +1,6 @@
 import * as request from 'superagent'
 import {baseUrl} from '../constants'
-import {SHOW_STUDENTS, ADD_STUDENT, UPDATE_STUDENT, SHOW_STUDENT} from './types'
+import {SHOW_STUDENTS, ADD_STUDENT, UPDATE_STUDENT} from './types'
 
 
 export const getStudents = (batchId) => (dispatch, getState) => {
@@ -50,21 +50,21 @@ export const updateStudent = (studentId, student) => (dispatch, getState) => {
     .catch(err => console.error(err))
 }
 
-export const getStudent = (studentId) => (dispatch, getState) => {
-  // const state = getState()
-  // const jwt = state.currentUser.jwt
-  request
-    .get(`${baseUrl}/students/${studentId}`)
-    // .set('Authorization', `Bearer ${jwt}`)
-    .then(result => {
-      // console.log(result.body.batchStudents);
-      dispatch({
-        type: SHOW_STUDENT,
-        payload: result.body
-      })
-    })
-    .catch(err => console.error(err))
-}
+// export const getStudent = (studentId) => (dispatch, getState) => {
+//   // const state = getState()
+//   // const jwt = state.currentUser.jwt
+//   request
+//     .get(`${baseUrl}/students/${studentId}`)
+//     // .set('Authorization', `Bearer ${jwt}`)
+//     .then(result => {
+//       // console.log(result.body.batchStudents);
+//       dispatch({
+//         type: SHOW_STUDENT,
+//         payload: result.body
+//       })
+//     })
+//     .catch(err => console.error(err))
+// }
 
 //
 // export const deleteStudent = "DELETE_STUDENT"

@@ -27,3 +27,7 @@ table, th, td {
 h2 {
   text-align: center;
 }
+
+img {
+  height: 200px;
+}
