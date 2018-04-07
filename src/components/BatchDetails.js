@@ -50,7 +50,8 @@ const mapStateToProps = function (state, props) {
 	return {
 		students: state.students,
     batchId: props.match.params.batchId,
-    batch: state.batches && state.batches[props.match.params.batchId -1]
+    batch: state.batches && state.batches.find(batch => `${batch.id}`===props.match.params.batchId)
+    // batch: state.batches && state.batches[props.match.params.batchId -1]
 	}
 }
 

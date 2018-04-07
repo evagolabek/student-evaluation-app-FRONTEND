@@ -20,13 +20,16 @@ export const getEvaluations = (studentId) => (dispatch, getState) => {
     .catch(err => console.error(err))
 }
 
-export const createEvaluation = () => (dispatch, getState) => {
+export const createEvaluation = (evaluation, props) => (dispatch, getState) => {
+  console.log('hello');
   // const state = getState()
   // const jwt = state.currentUser.jwt
+  console.log(props.match.params.id);
+  const studentId = props.match.params.id
   request
-    .post(`${baseUrl}/evaluations`)
+    .post(`${baseUrl}/students/${studentId}/users/1/evaluations`)
     // .set('Authorization', `Bearer ${jwt}`)
-    .send({})
+    .send(evaluation)
     .then(response => {
       dispatch({
         type: ADD_EVALUATION,

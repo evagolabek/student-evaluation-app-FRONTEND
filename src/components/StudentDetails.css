@@ -1,4 +1,4 @@
-.student-details {
+/* .student-details {
   background-color: grey;
   position: absolute;
   height: 100%;
@@ -35,6 +35,10 @@
   flex: 1;
 
   display: flex;
+} */
+
+.evaluation-row {
+  cursor: pointer;
 }
 
 /* .vote {
@@ -65,9 +69,9 @@
   flex: 1;
 } */
 
-.footer {
+/* .footer {
   text-align: center;
   background-color: pink;
   height: 40px;
   border-top: 1px solid black;
-}
+} */

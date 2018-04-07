@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {getEvaluations} from '../actions/evaluations'
 import {getBatches} from '../actions/batches'
 import {getStudents} from '../actions/students'
+import './StudentDetails.css'
 
 
 class evaluationDetails extends PureComponent {
@@ -23,7 +24,7 @@ class evaluationDetails extends PureComponent {
         <h3>{ student.firstName }</h3>
         <h3>{ student.lastName }</h3>
         <img src={ student.image } alt='student'/>
-        <p>{ student.colour }</p>
+        <p>{ student.colour } </p>
         <div className='evaluation-list'>
           <h2>evaluations</h2>
           <table>
@@ -41,7 +42,7 @@ class evaluationDetails extends PureComponent {
               </tr>
             )}
           </table>
-          <button onClick={_=>window.location.href=`/addEvaluation`} className='evaluation-addButton'>Add Evaluation</button>
+          <button onClick={_=>window.location.href=`/students/${student.id}/evaluations`} className='evaluation-addButton'>Add Evaluation</button>
         </div>
       </div>
     )
@@ -59,7 +60,8 @@ const mapStateToProps = function (state, props) {
     studentId: props.match.params.studentId,
     evaluations: state.evaluations,
     // evaluationId: props.match.params.evaluationId,
-    student: state.students !== null && state.students[props.match.params.studentId - 1],
+    student: state.students !== null && state.students.find(student => `${student.id}`===props.match.params.studentId),
+    // student: state.students !== null && state.students[props.match.params.studentId - 1],
 
   }
 }

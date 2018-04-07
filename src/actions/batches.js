@@ -18,13 +18,13 @@ export const getBatches = () => (dispatch, getState) => {
     .catch(err => console.error(err))
 }
 
-export const createBatch = () => (dispatch, getState) => {
+export const createBatch = (o) => (dispatch, getState) => {
   // const state = getState()
   // const jwt = state.currentUser.jwt
   request
     .post(`${baseUrl}/batches`)
     // .set('Authorization', `Bearer ${jwt}`)
-    .send({})
+    .send(o)
     .then(response => {
       dispatch({
         type: ADD_BATCH,

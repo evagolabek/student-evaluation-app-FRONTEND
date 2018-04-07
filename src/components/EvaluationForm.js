@@ -1,4 +1,6 @@
 import React, {PureComponent} from 'react'
+import {connect} from 'react-redux'
+import {createEvaluation} from '../actions/evaluations'
 
 
 class EvaluationForm extends PureComponent {
@@ -6,7 +8,7 @@ class EvaluationForm extends PureComponent {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		this.props.onSubmit(this.state)
+		this.props.createEvaluation(this.state, this.props)
 	}
 
 	handleChange = (event) => {
@@ -22,12 +24,19 @@ class EvaluationForm extends PureComponent {
 			<form onSubmit={this.handleSubmit}>
       <div className='add-evaluation-form'>
 				<div className='batch-nr'>
-					<label htmlFor="string">Colour</label>
-					<input name="string" id="string" value={
-						this.state.string || ''
+					<label htmlFor="colour">Colour</label>
+					<input name="colour" id="colour" value={
+						this.state.colour || ''
 					} onChange={ this.handleChange } />
 				</div>
 
+
+				<div>
+					<label htmlFor="date">Date</label>
+					<input name="date" id="date" value={
+						this.state.date || ''
+					} onChange={ this.handleChange } />
+				</div>
 
 				<div>
 					<label htmlFor="remarks">Remarks</label>
@@ -35,6 +44,7 @@ class EvaluationForm extends PureComponent {
 						this.state.remarks || ''
 					} onChange={ this.handleChange } />
 				</div>
+
       </div>
 				<button type="submit">Save</button>
 			</form>
@@ -42,4 +52,11 @@ class EvaluationForm extends PureComponent {
 	}
 }
 
-export default EvaluationForm
+// const mapStateToProps = function (state, props) {
+//
+// 	return {
+//     studentId: props.match.params.id,
+//   }
+// }
+
+export default connect (null,{createEvaluation})(EvaluationForm)
