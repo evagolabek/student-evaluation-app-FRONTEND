@@ -1,18 +1,27 @@
 import React, { PureComponent } from 'react'
 import {connect} from 'react-redux'
 import {getBatches} from '../actions/batches'
-import {getStudents} from '../actions/students'
+import {getStudents, getRandomStudent} from '../actions/students'
 import './BatchDetails.css'
 
 class BatchDetails extends PureComponent {
-componentWillMount() {
-  this.props.getBatches()
-  this.props.getStudents(this.props.batchId)
+  componentWillMount() {
+    this.props.getBatches()
+    this.props.getStudents(this.props.batchId)
+  }
 
-}
+  askQuestion = () => {
+    this.props.getRandomStudent(this.props.batchId)
+  }
+
   render() {
     const {students, batch} = this.props;
     if (!batch) return "This batch doesn't exist"
+
+    if (this.props.randomStudent !== null) {
+      // console.log(`/batches/${this.props.batchId}/students/${this.props.randomStudent}`);
+      window.location.href=`/batches/${this.props.batchId}/students/${this.props.randomStudent}`
+    }
 
     return (
       <div className='batch-details'>
@@ -27,16 +36,19 @@ componentWillMount() {
             <tr className='student-header'>
               <th>Name</th>
               <th>Image</th>
+              <th>Last Colour</th>
             </tr>
 
             {students && students.map(student =>
               <tr className='student-row' onClick={_=>window.location.href=`/batches/${batch.id}/students/${student.id}`}>
                 <td className='student-name'>{`${student.firstName} ${student.lastName}`}</td>
                 <td className='student-image'><img src={student.image} alt='student'/></td>
+                <td className={`student-lastColour-${student.lastColour}`}></td>
               </tr>
             )}
           </table>
           <button onClick={_=>window.location.href=`/addStudent`} className='student-addButton'>Add New Student</button>
+          <button onClick={this.askQuestion} className='student-addButton'>Ask Question</button>
         </div>
       </div>
     )
@@ -50,9 +62,10 @@ const mapStateToProps = function (state, props) {
 	return {
 		students: state.students,
     batchId: props.match.params.batchId,
-    batch: state.batches && state.batches.find(batch => `${batch.id}`===props.match.params.batchId)
+    batch: state.batches && state.batches.find(batch => `${batch.id}`===props.match.params.batchId),
     // batch: state.batches && state.batches[props.match.params.batchId -1]
+    randomStudent: state.randomStudent
 	}
 }
 
-export default connect(mapStateToProps, {getBatches, getStudents})(BatchDetails)
+export default connect(mapStateToProps, {getBatches, getStudents, getRandomStudent})(BatchDetails)

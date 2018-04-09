@@ -29,5 +29,25 @@ h2 {
 }
 
 img {
-  height: 200px;
+  height: 150px;
+}
+
+.student-lastColour-red {
+  background-color: red;
+}
+
+.student-lastColour-green {
+  background-color: green;
+}
+
+.student-lastColour-yellow {
+  background-color: yellow;
+}
+
+.student-lastColour- {
+  background-color: red;
+}
+
+.student-lastColour-null {
+  background-color: red;
 }

@@ -6,9 +6,10 @@ import {createEvaluation} from '../actions/evaluations'
 class EvaluationForm extends PureComponent {
 	state = {}
 
-	handleSubmit = (e) => {
+	handleSubmit = async (e) => {
 		e.preventDefault()
-		this.props.createEvaluation(this.state, this.props)
+		await this.props.createEvaluation(this.state, this.props.match.params.studentId)
+		window.location.href=`/batches/${this.props.match.params.batchId}/students/${this.props.match.params.studentId}`
 	}
 
 	handleChange = (event) => {

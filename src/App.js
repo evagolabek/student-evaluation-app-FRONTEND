@@ -23,7 +23,7 @@ class App extends Component {
           <Route exact path="/batches/:batchId" component={BatchDetails} />
           <Route exact path="/addBatch" component={BatchForm} />
           <Route exact path="/batches/:batchId/students/:studentId" component={StudentDetails} />
-          <Route exact path="/students/:id/evaluations" component={EvaluationForm} />
+          <Route exact path="/batches/:batchId/students/:studentId/evaluations" component={EvaluationForm} />
           <Route exact path="/" render={ () => <Redirect to="/batches" /> } />
         </div>
       </Router>
